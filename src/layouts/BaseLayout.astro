@@ -1,0 +1,25 @@
+---
+import '../styles/global.css'; /* asi se importan los archivos css */
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/hicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Mi blog</title>
+	</head>
+	<body>
+		<header>
+			<nav>
+				<a href="/">Inicio</a>
+				<a href="/blog/">Blog</a>
+				<a href="/about/">Sobre mi</a>				
+			</nav>
+		</header>
+		<main>
+			<slot /> <!-- asi se reemplaza el body -->
+		</main>
+	</body>
+</html>
