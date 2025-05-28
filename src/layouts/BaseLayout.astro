@@ -1,16 +1,16 @@
 ---
-import '../styles/global.css'; /* asi se importan los archivos css */
+import '../styles/global.css'; /* asi se importan los archivos css LOCALES */
 ---
 
 <html lang="en">
-	<head>
+	<head> <!-- info no visible de la web -->
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/hicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Mi blog</title>
 	</head>
-	<body>
+	<body> <!-- contenido visible de la web -->
 		<header>
 			<nav>
 				<a href="/">Inicio</a>
@@ -19,7 +19,7 @@ import '../styles/global.css'; /* asi se importan los archivos css */
 			</nav>
 		</header>
 		<main>
-			<slot /> <!-- asi se reemplaza el body -->
+			<slot /> <!-- etiqueta necesaria para modificaciones en el layout -->
 		</main>
 	</body>
 </html>
