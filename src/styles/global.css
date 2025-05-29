@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
 /* se importa la fuente de google */
+
 body {
+    background-image: url(/public/background.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
     font-family: 'Exo 2', sans-serif; /* se aplica la fuente */
 }
 
@@ -10,6 +16,16 @@ header {
     justify-content: center;
     margin-top: 2rem;
     margin-bottom: 2rem;
+}
+
+.content-sheet {
+    background-color: white; /* Color de la "hoja" */
+    max-width: 900px;     /* Ancho máximo de tu "hoja" */
+    margin-left: auto;
+    margin-right: auto;   /* Estas dos líneas centran la hoja horizontalmente */
+    padding: 2rem 3rem;   /* Espacio interno para el contenido dentro de la hoja */
+    border-radius: 4px;   /* Bordes redondeados suaves */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12); /* Sombra para el efecto "flotante" */
 }
 
 main  {

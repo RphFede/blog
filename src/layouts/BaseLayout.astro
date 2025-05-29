@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css'; /* asi se importan los archivos css LOCALES */
+import { ClientRouter } from 'astro:transitions'; 
 ---
 
 <html lang="en">
@@ -9,17 +10,29 @@ import '../styles/global.css'; /* asi se importan los archivos css LOCALES */
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Mi blog</title>
+		<ClientRouter />
 	</head>
 	<body> <!-- contenido visible de la web -->
-		<header>
-			<nav>
+		<header> <!-- cabecera de la web (suele compartirse entre las paginas) -->
+			<nav> <!-- barra de navegacion -->
 				<a href="/">Inicio</a>
 				<a href="/blog/">Blog</a>
 				<a href="/about/">Sobre mi</a>				
 			</nav>
-		</header>
-		<main>
-			<slot /> <!-- etiqueta necesaria para modificaciones en el layout -->
-		</main>
+		</header>	
+		<div class="content-sheet">
+			<main> <!-- contenido principal de la web -->
+				<slot /> <!-- etiqueta necesaria para modificaciones en el layout -->
+			</main>
+		</div>
+		<script>
+			// Scripts que quieras que se ejecuten en cada carga de página "suave"
+			// deben estar aquí o ser manejados de forma que se re-inicien.
+			// Por ejemplo, usando el evento `astro:after-swap`
+			document.addEventListener('astro:after-swap', () => {
+			  console.log("Página cambiada con View Transitions!");
+			  // Aquí puedes reinicializar scripts de terceros o lógica específica
+			});
+		  </script>
 	</body>
 </html>
