@@ -1,12 +1,20 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+const identity = {
+  name: "Federico",
+  country: "Argentina",
+  occupation: "estudiante de filosofía"
+};
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
 ---
 <BaseLayout title="Sobre mí">
     <body>
-        <h1>¿Quién soy?</h1>
-        <h2>... ¡ni idea, bro!</h2>
-        
-        <p>Estoy trabajando en el tutorial introductorio de Astro. Esta es la segunda página de mi sitio web, ¡y es la primera que he construido yo mismo!</p>
-        <p>Este sitio se irá actualizando a medida que vaya completando más partes del tutorial, ¡así que no dejes de visitarlo para ver cómo va mi viaje!</p>
+        <h1>¿Quién soy?</h1>        
+        <p>Me llamo {identity.name}.</p>
+        <p>Soy de {identity.country} y soy {identity.occupation}.</p>
+        <p>De momento estoy trabajando en perfeccionar mis habilidades en:</p>
+        <ul>
+            {skills.map((skill) => <li>{skill}</li>)}
+        </ul>
     </body>
 </BaseLayout>

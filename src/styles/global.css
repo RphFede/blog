@@ -3,10 +3,10 @@
 
 body {
     background-image: url(/public/background.webp);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
+    background-size: cover; /* ajusta la imagen al tamaño de la pantalla */
+    background-repeat: no-repeat; /* evita que la imagen se repita */
+    background-attachment: fixed; /* fija la imagen en su lugar */
+    background-position: center; /* centra la imagen */
     font-family: 'Exo 2', sans-serif; /* se aplica la fuente */
 }
 
@@ -20,18 +20,18 @@ header {
 }
 
 a {
-    text-decoration: none;
-    font-weight: bold;
+    text-decoration: none; /* Elimina el subrayado */
+    font-weight: bold; /* Hace que el texto sea negrita */
     color: black;
 }
 
 a:hover {
-    color: indigo;
+    color: indigo; /* Cambia el color al pasar el ratón por encima */
 }
 
 nav {
     flex-direction: row; /* los elementos se apilan horizontalmente */
-    margin-top: 1rem;
+    margin-top: 1rem; /* margen superior */
 }
 
 nav a {
@@ -40,7 +40,7 @@ nav a {
 }
 
 .content-sheet {
-    background-color: white; /* Color de la "hoja" */
+    background-color: whitesmoke; /* Color de la "hoja" */
     max-width: 900px;     /* Ancho máximo de tu "hoja" */
     margin-left: auto;
     margin-right: auto;   /* Estas dos líneas centran la hoja horizontalmente */
@@ -52,4 +52,17 @@ nav a {
 main  {
     margin-left: 2rem;
     margin-right: 2rem;
+}
+
+/* blog-posts */
+
+.blog-posts {
+    display: block;
+}
+
+.blog-posts li {
+    margin: 1.5rem; /* Espacio alrededor de cada post */
+    padding: 1rem; /* Espacio interno alrededor del contenido del post */
+    border: 1px solid #e0e0e0; /* Borde suave alrededor del post */
+    border-radius: 4px; /* Bordes redondeados suaves */
 }
