@@ -1,0 +1,33 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+// 1. Obtiene todos los posts de la colección 'posts'
+const allPosts = await getCollection('posts');
+// Opcional: ordenarlos por fecha
+const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout title="Inicio"> <!-- asi se reemplaza el titulo en head -->
+	<body>
+		<h1>Mi blog</h1>
+		<p>Más recientes:</p>
+    <ul>
+      {
+        sortedPosts.map((post) => (
+          <li>
+            <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
+            <p>{post.data.description}</p>
+            <p><small>Fecha de publicación {post.data.pubDate.toLocaleDateString()}</small></p>
+          </li>
+        ))
+      }
+    </ul>
+	</body>
+</BaseLayout>
+
+<style>
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+</style>

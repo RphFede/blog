@@ -1,0 +1,49 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostHeader from '../../components/PostHeader.astro';
+// 1. getStaticPaths le dice a Astro qué páginas generar
+export async function getStaticPaths() {
+  const allPosts = await getCollection('posts');
+  return allPosts.map((post) => ({
+    params: { slug: post.slug }, // El slug debe coincidir con el nombre del archivo [slug].astro
+    props: { post }, // Pasamos el post completo como prop
+  }));
+}
+// 2. Obtenemos las props del post actual
+const { post } = Astro.props;
+const { Content } = await post.render(); // ¡Aquí se renderiza el Markdown!
+// Manejo seguro de la fecha
+let formattedDate = '';
+try {
+  if (post.data.pubDate) {
+    const pubDate = new Date(post.data.pubDate);
+    formattedDate = pubDate.toLocaleDateString('es-ES', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  }
+} catch (error) {
+  console.error('Error al formatear la fecha:', error);
+  formattedDate = post.data.pubDate?.toString() || 'Fecha no disponible';
+}
+---
+
+<BaseLayout>
+    <article>
+        <PostHeader 
+          title={post.data.title} 
+          description={post.data.description} 
+        />
+        <Content />     <!-- 3. El componente <Content /> inyecta el HTML del Markdown -->
+        <div class="post-footer">
+            <div class="post-tags">
+                {post.data.tags.map((tag) => (
+                    <span class="tag">{tag}</span>
+                ))}
+            </div>
+            <p class="post-date">{formattedDate}</p>
+        </div>
+    </article>
+</BaseLayout>

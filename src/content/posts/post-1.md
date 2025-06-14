@@ -1,16 +1,15 @@
 ---
-title: 'My First Blog Post'
-pubDate: 2022-07-01
-description: 'This is the first post of my new Astro blog.'
-author: 'Astro Learner'
+title: El Contrato Social
+description: 'Resumen comparativo de los principales pensadores del estado-nación moderno.'
+pubDate: 2025-06-14
+author: Federico Rudolph
 image:
-    url: 'https://docs.astro.build/assets/rose.webp'
-    alt: 'The Astro logo on a dark background with a pink glow.'
-tags: ["astro", "blogging", "learning in public"]
+    url: '/content/images/Couder_-_Le_Serment_du_Jeu_de_Paume.webp'
+    alt: "Le Serment du Jeu de paume."
+tags: ["Hobbes", "Locke", "Maquiavelo", "Rosseau", "Spinoza", "derecho natural", "filosofía moderna", "filosofía política"]
 ---
-# My First Blog Post
 
-Published on: 2022-07-01
+![Le Serment du Jeu de Paume, Auguste Couder](/src/content/images/Couder_-_Le_Serment_du_Jeu_de_Paume.webp)
 
 Welcome to my _new blog_ about learning Astro! Here, I will share my learning journey as I build a new website.
 
