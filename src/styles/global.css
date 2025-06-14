@@ -12,10 +12,31 @@ body {
 
 header {
     display: flex;
+    flex-direction: column; /* los elementos se apilan verticalmente */
     align-items: center;
     justify-content: center;
     margin-top: 2rem;
     margin-bottom: 2rem;
+}
+
+a {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}
+
+a:hover {
+    color: indigo;
+}
+
+nav {
+    flex-direction: row; /* los elementos se apilan horizontalmente */
+    margin-top: 1rem;
+}
+
+nav a {
+    margin: .5rem;
+    font-size: 18px;
 }
 
 .content-sheet {
@@ -29,5 +50,6 @@ header {
 }
 
 main  {
-    margin-left: 3rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
 }
