@@ -1,6 +1,8 @@
 ---
 import '../styles/global.css'; /* asi se importan los archivos css LOCALES */
-import { ClientRouter } from 'astro:transitions'; 
+import { ClientRouter } from 'astro:transitions';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <html lang="en">
@@ -14,18 +16,15 @@ import { ClientRouter } from 'astro:transitions';
 	</head>
 	<body> <!-- contenido visible de la web -->
 		<header> <!-- cabecera de la web (suele compartirse entre las paginas) -->
-			<img src="/hicon.svg" alt="phi letter"> <!-- logo de la web -->
-			<nav> <!-- barra de navegacion -->
-				<a href="/blog/">Inicio</a>
-				<a href="/entries/">Entradas</a>
-				<a href="/about/">Sobre mí</a>				
-			</nav>
+			<img src="/svg/phicon.svg" alt="Phi"> <!-- logo de la web -->
+			<Navigation />
 		</header>	
 		<div class="content-sheet">
 			<main> <!-- contenido principal de la web -->
 				<slot /> <!-- etiqueta necesaria para modificaciones en el layout -->
 			</main>
 		</div>
+		<Footer />
 		<script>
 			// Scripts que quieras que se ejecuten en cada carga de página "suave"
 			// deben estar aquí o ser manejados de forma que se re-inicien.

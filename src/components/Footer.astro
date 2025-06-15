@@ -1,0 +1,46 @@
+<footer>
+    <div class="social">
+        <a href="https://github.com/RphFede" target="_blank" rel="noopener noreferrer">
+            <img src="/svg/github.svg" alt="GitHub">
+        </a>
+        <a href="https://instagram.com/rph.fede" target="_blank" rel="noopener noreferrer">
+            <img src="/svg/instagram.svg" alt="Instagram">
+        </a>
+    </div>    
+</footer>
+
+<style>
+    footer {
+        background: #383848;
+        color: white;
+        padding: .8rem;
+        text-align: center;
+        margin-top: auto;
+    }
+    
+    .social {
+        display: flex;
+        justify-content: center; 
+        gap: .8rem;
+    }
+    
+    .social a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        border-radius: 4px;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+    
+    .social a:hover {
+        transform: translateY(-2px);
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .social img {
+        width: 32px;
+        height: 32px;
+    }
+</style>

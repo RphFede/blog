@@ -1,13 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
 /* se importa la fuente de google */
 
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    background-image: url(/public/background.webp);
+    background-image: url(/background.webp);
     background-size: cover; /* ajusta la imagen al tamaño de la pantalla */
     background-repeat: no-repeat; /* evita que la imagen se repita */
     background-attachment: fixed; /* fija la imagen en su lugar */
     background-position: center; /* centra la imagen */
     font-family: 'Exo 2', sans-serif; /* se aplica la fuente */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 header {
@@ -30,7 +39,7 @@ a:hover {
 }
 
 nav {
-    flex-direction: row; /* los elementos se apilan horizontalmente */
+    justify-content: center; /* centra los elementos horizontalmente */;
     margin-top: 1rem; /* margen superior */
 }
 
@@ -41,12 +50,14 @@ nav a {
 
 .content-sheet {
     background-color: whitesmoke; /* Color de la "hoja" */
-    max-width: 900px;     /* Ancho máximo de tu "hoja" */
+    max-width: 950px;     /* Ancho máximo de tu "hoja" */
     margin-left: auto;
     margin-right: auto;   /* Estas dos líneas centran la hoja horizontalmente */
     padding: 2rem 3rem;   /* Espacio interno para el contenido dentro de la hoja */
     border-radius: 4px;   /* Bordes redondeados suaves */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12); /* Sombra para el efecto "flotante" */
+    flex: 1; /* Hace que el contenido principal ocupe el espacio disponible */
+    margin-bottom: 2rem; /* Espacio entre el contenido y el footer */
 }
 
 main {
