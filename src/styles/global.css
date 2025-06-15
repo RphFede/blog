@@ -8,15 +8,29 @@ html, body {
 }
 
 body {
-    background-image: url(/background.webp);
-    background-size: cover; /* ajusta la imagen al tamaño de la pantalla */
-    background-repeat: no-repeat; /* evita que la imagen se repita */
-    background-attachment: fixed; /* fija la imagen en su lugar */
-    background-position: center; /* centra la imagen */
     font-family: 'Exo 2', sans-serif; /* se aplica la fuente */
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    position: relative;
+}
+
+/* Pseudo-elemento para la imagen de fondo con filtros */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(/background.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    /* Filtros optimizados para lectura: menos verde, más amarillo con grises */
+    filter: brightness(0.75) contrast(0.95) hue-rotate(-12deg) saturate(0.85) sepia(0.3);
+    z-index: -1;
 }
 
 header {
@@ -25,7 +39,7 @@ header {
     align-items: center;
     justify-content: center;
     margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 }
 
 a {
@@ -42,22 +56,35 @@ nav {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     justify-items: center;
-    align-items: center;
+    align-items:center;
+    gap: 1rem; /* Espacio entre los elementos */;
     margin-top: 1rem; /* margen superior */
     max-width: 400px;
     margin-left: auto;
     margin-right: auto;
+    background: #383848;
+    color: white;
+    padding: 0.5rem 3rem;
+    border-radius: 16px;
 }
 
 nav a {
-    font-size: 18px;
+    font-size: 16px;
     padding: 0.5rem;
+    color: #fdfdfd;
+    transition: transform 0.3s ease;
 }
 
 /* Alinea específicamente "Entradas" con el icono de arriba */
 nav a:nth-child(2) {
     grid-column: 2;
     justify-self: center;
+}
+
+nav a:hover {
+    color: #fdfdfd;
+    transform: translateY(-2px);
+    border-radius: 8px;
 }
 
 .content-sheet {
@@ -69,8 +96,29 @@ nav a:nth-child(2) {
     border-radius: 4px;   /* Bordes redondeados suaves */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12); /* Sombra para el efecto "flotante" */
     flex: 1; /* Hace que el contenido principal ocupe el espacio disponible */
-    margin-top: 2rem; /* Espacio entre el header y el contenido principal */
     margin-bottom: 4rem; /* Espacio entre el contenido y el footer - igualado con distancia header-main */
+    position: relative; /* Necesario para el pseudo-elemento */
+}
+
+.content-sheet::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/svg/sand.png');
+    background-size: cover;
+    background-repeat:space;
+    background-position: center;
+    border-radius: 4px; /* Mantiene los bordes redondeados */
+    pointer-events: none; /* Permite interactuar con el contenido debajo */
+    z-index: 0; /* Coloca la imagen detrás del contenido */
+}
+
+.content-sheet > * {
+    position: relative;
+    z-index: 1; /* Asegura que el contenido esté por encima de la imagen */
 }
 
 main {
