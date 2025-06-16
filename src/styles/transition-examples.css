@@ -1,0 +1,230 @@
+/* ========================================
+   EJEMPLOS DE TRANSICIONES PARA ASTRO VIEW TRANSITIONS
+   ======================================== */
+
+/* Para usar estos ejemplos, simplemente descomenta el que quieras probar
+   y agrégalo a tu global.css o impórtalo en BaseLayout.astro */
+
+/* ========================================
+   1. FADE SUAVE (Recomendado para empezar)
+   ======================================== */
+/*
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.4s;
+  animation-timing-function: ease-in-out;
+}
+
+::view-transition-old(root) {
+  animation-name: fade-out;
+}
+
+::view-transition-new(root) {
+  animation-name: fade-in;
+}
+
+@keyframes fade-out {
+  to { opacity: 0; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+}
+*/
+
+/* ========================================
+   2. SLIDE HORIZONTAL (Efecto moderno)
+   ======================================== */
+/*
+::view-transition-old(root) {
+  animation: slide-out-left 0.5s ease-in-out;
+}
+
+::view-transition-new(root) {
+  animation: slide-in-right 0.5s ease-in-out;
+}
+
+@keyframes slide-out-left {
+  to { transform: translateX(-100%); }
+}
+
+@keyframes slide-in-right {
+  from { transform: translateX(100%); }
+}
+*/
+
+/* ========================================
+   3. ZOOM ELEGANTE (Efecto de profundidad)
+   ======================================== */
+
+::view-transition-old(root) {
+  animation: zoom-out 0.6s ease-in-out;
+}
+
+::view-transition-new(root) {
+  animation: zoom-in 0.6s ease-in-out;
+}
+
+@keyframes zoom-out {
+  to { 
+    transform: scale(0.8);
+    opacity: 0;
+  }
+}
+
+@keyframes zoom-in {
+  from { 
+    transform: scale(1.1);
+    opacity: 0;
+  }
+}
+
+
+/* ========================================
+   4. FLIP VERTICAL (Efecto de volteo)
+   ======================================== */
+/*
+::view-transition-old(root) {
+  animation: flip-out 0.7s ease-in-out;
+}
+
+::view-transition-new(root) {
+  animation: flip-in 0.7s ease-in-out;
+}
+
+@keyframes flip-out {
+  to { 
+    transform: rotateY(-90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes flip-in {
+  from { 
+    transform: rotateY(90deg);
+    opacity: 0;
+  }
+}
+*/
+
+/* ========================================
+   5. SLIDE VERTICAL (Efecto de cortina)
+   ======================================== */
+/*
+::view-transition-old(root) {
+  animation: slide-up-out 0.5s ease-in-out;
+}
+
+::view-transition-new(root) {
+  animation: slide-down-in 0.5s ease-in-out;
+}
+
+@keyframes slide-up-out {
+  to { transform: translateY(-100%); }
+}
+
+@keyframes slide-down-in {
+  from { transform: translateY(100%); }
+}
+*/
+
+/* ========================================
+   6. BLUR TRANSITION (Efecto de desenfoque)
+   ======================================== */
+/*
+::view-transition-old(root) {
+  animation: blur-out 0.4s ease-in-out;
+}
+
+::view-transition-new(root) {
+  animation: blur-in 0.4s ease-in-out;
+}
+
+@keyframes blur-out {
+  to { 
+    filter: blur(10px);
+    opacity: 0;
+  }
+}
+
+@keyframes blur-in {
+  from { 
+    filter: blur(10px);
+    opacity: 0;
+  }
+}
+*/
+
+/* ========================================
+   7. ROTATE FADE (Efecto de rotación suave)
+   ======================================== */
+/*
+::view-transition-old(root) {
+  animation: rotate-fade-out 0.6s ease-in-out;
+}
+
+::view-transition-new(root) {
+  animation: rotate-fade-in 0.6s ease-in-out;
+}
+
+@keyframes rotate-fade-out {
+  to { 
+    transform: rotate(5deg) scale(0.95);
+    opacity: 0;
+  }
+}
+
+@keyframes rotate-fade-in {
+  from { 
+    transform: rotate(-5deg) scale(1.05);
+    opacity: 0;
+  }
+}
+*/
+
+/* ========================================
+   CONFIGURACIÓN PARA ACCESIBILIDAD
+   ======================================== */
+
+/* Respeta las preferencias de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
+  }
+}
+
+/* ========================================
+   TRANSICIONES ESPECÍFICAS PARA ELEMENTOS
+   ======================================== */
+
+/* Ejemplo para animar solo el contenido principal */
+/*
+::view-transition-old(main-content),
+::view-transition-new(main-content) {
+  animation-duration: 0.3s;
+}
+
+::view-transition-old(main-content) {
+  animation-name: content-fade-out;
+}
+
+::view-transition-new(main-content) {
+  animation-name: content-fade-in;
+}
+
+@keyframes content-fade-out {
+  to { 
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes content-fade-in {
+  from { 
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+*/

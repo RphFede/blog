@@ -7,7 +7,7 @@ const allPosts = await getCollection('posts');
 const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
-<BaseLayout title="Inicio"> <!-- asi se reemplaza el titulo en head -->
+<BaseLayout>
 	<h1>Más recientes:</h1>
     <ul>
       {

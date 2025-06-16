@@ -61,12 +61,19 @@ a:hover {
     margin-right: auto;   /* Estas dos líneas centran la hoja horizontalmente */
     padding: 2rem 3rem;   /* Espacio interno para el contenido dentro de la hoja */
     border-radius: 4px;   /* Bordes redondeados suaves */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12); /* Sombra para el efecto "flotante" */
+    box-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.12),           /* Sombra base sutil */
+    0 4px 8px rgba(0, 0, 0, 0.08),           /* Sombra principal */
+    0 8px 16px rgba(0, 0, 0, 0.04),          /* Sombra difusa */
+    -2px 2px 6px rgba(0, 0, 0, 0.06),        /* Refuerzo lado izquierdo */
+    2px 2px 4px rgba(0, 0, 0, 0.04);         /* Refuerzo lado derecho (más sutil) */
     flex: 1; /* Hace que el contenido principal ocupe el espacio disponible */
     margin-bottom: 4rem; /* Espacio entre el contenido y el footer - igualado con distancia header-main */
     position: relative; /* Necesario para el pseudo-elemento */
 }
 
+/* IMAGEN DE FONDO DE LA HOJA DE CONTENIDO */
+/* Configuración para mostrar sand.png en la parte inferior de cada página */
 .content-sheet::before {
     content: '';
     position: absolute;
@@ -75,9 +82,14 @@ a:hover {
     width: 100%;
     height: 100%;
     background-image: url('/svg/sand.png');
-    background-size: cover;
-    background-repeat:space;
-    background-position: center;
+    /* OPCIONES DE BACKGROUND-SIZE:
+       - cover: Escala la imagen para cubrir todo el contenedor (puede recortar)
+       - auto: Mantiene el tamaño original de la imagen
+       - 100% auto: Estira al ancho completo, altura proporcional
+       - contain: Ajusta para que toda la imagen sea visible */
+    background-size: 100% auto; /* Ancho completo, altura proporcional */
+    background-repeat: no-repeat;
+    background-position: bottom; /* Alinea la imagen en la parte inferior */
     border-radius: 4px; /* Mantiene los bordes redondeados */
     pointer-events: none; /* Permite interactuar con el contenido debajo */
     z-index: 0; /* Coloca la imagen detrás del contenido */
@@ -95,15 +107,6 @@ main {
 
 /* Estilos para imágenes en el contenido Markdown */
 /* Reemplaza o modifica el selector actual */
-article img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 2rem auto;
-    border-radius: 4px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
 .post-header {
     margin: auto;
 }
@@ -117,7 +120,16 @@ article img {
     font-size: 18px;
     font-style: italic;
     font-weight:500;
-    text-align: left;
+    text-align: center;
+}
+
+article img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 2rem auto;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Estilos para el footer del post */

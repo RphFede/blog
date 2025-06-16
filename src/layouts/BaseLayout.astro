@@ -1,38 +1,127 @@
 ---
-import '../styles/global.css'; /* asi se importan los archivos css LOCALES */
+// asi se importan los archivos css LOCALES
+import '../styles/global.css'; 
+// import '../styles/transition-examples.css';
+// Router para las transiciones
 import { ClientRouter } from 'astro:transitions';
+// Componentes compartidos entre las paginas
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
+// Props opcionales para el layout (Props = Propiedades)
+export interface Props {
+	title?: string; // El "?" indica que es opcional, por defecto es "Reflexiones de sillón"
+}
+const { title = "Reflexiones de sillón" } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="es">
+
 	<head> <!-- info no visible de la web -->
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/phicon.svg" />
+		<link rel="icon" type="image/svg+xml" href="/phicon.svg" /> <!-- icono de la web -->
 		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Reflexiones de sillón</title>
-		<ClientRouter />
-	</head>
+		<meta name="generator" content={Astro.generator} /> <!-- generador de la web -->
+		<title>{title}</title> 
+		<ClientRouter /> <!-- router para las transiciones -->
+	</head>	
+
 	<body> <!-- contenido visible de la web -->
 		<header> <!-- cabecera de la web (suele compartirse entre las paginas) -->
 			<img src="/svg/phicon.svg" alt="Phi"> <!-- logo de la web -->
-			<Navigation />
-		</header>	
-		<div class="content-sheet">
+			<Navigation /> <!-- componente de navegacion -->
+		</header>
+
+		<div class="content-sheet"> <!-- utilice un div como padre de <main> para poder aplicar estilos -->
 			<main> <!-- contenido principal de la web -->
-				<slot /> <!-- etiqueta necesaria para modificaciones en el layout -->
+				<slot /> <!-- etiqueta necesaria para modificaciones en el layout, si no se pone, no se puede modificar el layout -->
 			</main>
 		</div>
-		<Footer />
+
+		<Footer /> <!-- componente de pie de pagina -->
+
+		<!-- MEJORES PRÁCTICAS PARA SCRIPTS CON VIEW TRANSITIONS -->
 		<script>
-			// Scripts que quieras que se ejecuten en cada carga de página "suave"
-			// deben estar aquí o ser manejados de forma que se re-inicien.
-			// Por ejemplo, usando el evento `astro:after-swap`
+			// ✅ CORRECTO: Tu ubicación actual está perfecta
+			// Los scripts en BaseLayout se ejecutan una vez y persisten
+			
+			// Función para inicializar scripts que necesitan reiniciarse
+			function initializePageScripts() {
+				console.log("🔄 Inicializando scripts de página");
+				
+				// Aquí puedes agregar:
+				// - Reinicialización de librerías de terceros
+				// - Event listeners específicos de página
+				// - Animaciones que deben reiniciarse
+				
+				// Ejemplo: reinicializar tooltips, modales, etc.
+				// initTooltips();
+				// initModals();
+			}
+			
+			// Ejecutar en la carga inicial
+			initializePageScripts();
+			
+			// ✅ EVENTO PRINCIPAL: Se ejecuta después de cada transición
 			document.addEventListener('astro:after-swap', () => {
-			  console.log("Página cambiada con View Transitions!");
-			  // Aquí puedes reinicializar scripts de terceros o lógica específica
+				console.log("✨ Página cambiada con View Transitions!");
+				initializePageScripts();
 			});
-		  </script>
+			
+			// ✅ EVENTOS ADICIONALES ÚTILES:
+			
+			// Antes de preparar la nueva página
+			document.addEventListener('astro:before-preparation', (event) => {
+				console.log("🔄 Preparando nueva página...");
+				// Aquí puedes mostrar un loader o limpiar estados
+			});
+			
+			// Después de preparar, antes de intercambiar
+			document.addEventListener('astro:after-preparation', () => {
+				console.log("✅ Nueva página preparada");
+			});
+			
+			// Antes del intercambio visual
+			document.addEventListener('astro:before-swap', () => {
+				console.log("🔄 Iniciando transición visual...");
+				// Último momento para limpiar o preparar la transición
+			});
+			
+			// ✅ EJEMPLO: Deshabilitar transiciones condicionalmente
+			/*
+			document.addEventListener('astro:before-preparation', (event) => {
+				// Ejemplo: deshabilitar transiciones para enlaces externos
+				if (event.to.pathname.startsWith('/admin')) {
+					event.preventDefault(); // Cancela la transición
+				}
+			});
+			*/
+			
+			// ✅ EJEMPLO: Transiciones personalizadas por ruta
+			/*
+			document.addEventListener('astro:before-preparation', (event) => {
+				// Agregar clases CSS específicas según la ruta
+				if (event.to.pathname.includes('/blog/')) {
+					document.documentElement.classList.add('blog-transition');
+				} else {
+					document.documentElement.classList.remove('blog-transition');
+				}
+			});
+			*/
+		</script>
+		
+		<!-- EJEMPLO: Script específico para desarrollo/debug -->
+		<script>
+			// Solo en desarrollo - puedes remover esto en producción
+			if (import.meta.env.DEV) {
+				console.log("🚀 Modo desarrollo: View Transitions activas");
+				
+				// Mostrar información de transiciones en consola
+				let transitionCount = 0;
+				document.addEventListener('astro:after-swap', () => {
+					transitionCount++;
+					console.log(`📊 Transición #${transitionCount} completada`);
+				});
+			}
+		</script>
 	</body>
 </html>
