@@ -5,6 +5,7 @@ import '../styles/global.css';
 // Router para las transiciones
 import { ClientRouter } from 'astro:transitions';
 // Componentes compartidos entre las paginas
+import Logo from '../components/Logo.astro';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 // Props opcionales para el layout (Props = Propiedades)
@@ -27,7 +28,7 @@ const { title = "Reflexiones de sillón" } = Astro.props;
 
 	<body> <!-- contenido visible de la web -->
 		<header> <!-- cabecera de la web (suele compartirse entre las paginas) -->
-			<img src="/svg/phicon.svg" alt="Phi"> <!-- logo de la web -->
+			<Logo /> <!-- componente de logo -->
 			<Navigation /> <!-- componente de navegacion -->
 		</header>
 
