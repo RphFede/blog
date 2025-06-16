@@ -8,8 +8,7 @@ const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pu
 ---
 
 <BaseLayout title="Inicio"> <!-- asi se reemplaza el titulo en head -->
-	<body>
-		<h1>Más recientes:</h1>
+	<h1>Más recientes:</h1>
     <ul>
       {
         sortedPosts.map((post) => (
@@ -21,7 +20,6 @@ const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pu
         ))
       }
     </ul>
-	</body>
 </BaseLayout>
 
 <style>

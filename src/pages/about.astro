@@ -9,13 +9,11 @@ const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
 ---
 
 <BaseLayout title="Sobre mí">
-    <body>
-        <h1>¿Quién soy?</h1>        
-        <p>Me llamo {identity.name}.</p>
-        <p>Soy de {identity.country} y soy {identity.occupation}.</p>
-        <p>De momento estoy trabajando en perfeccionar mis habilidades en:</p>
-        <ul>
-            {skills.map((skill) => <li>{skill}</li>)}
-        </ul>
-    </body>
+    <h1>¿Quién soy?</h1>        
+    <p>Me llamo {identity.name}.</p>
+    <p>Soy de {identity.country} y soy {identity.occupation}.</p>
+    <p>De momento estoy trabajando en perfeccionar mis habilidades en:</p>
+    <ul>
+        {skills.map((skill) => <li>{skill}</li>)}
+    </ul>
 </BaseLayout>
