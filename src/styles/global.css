@@ -1,5 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
 /* se importa la fuente de google */
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Prevención general
+html {
+    overflow-x: hidden;
+}
+
+* {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+img, video, iframe {
+    max-width: 100%;
+    height: auto;
+}
+*/
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
 
 html, body {
     height: 100%;
@@ -8,6 +28,8 @@ html, body {
 }
 
 body {
+    overflow-x: hidden; /* Previene scroll horizontal */
+    overflow-y: scroll; /* Fuerza la barra de scroll vertical siempre visible */
     font-family: 'Exo 2', sans-serif; /* se aplica la fuente */
     display: flex;
     flex-direction: column;
@@ -54,7 +76,7 @@ a:hover {
 
 .content-sheet {
     background-color: #fdfdfd; /* Color de la "hoja" */
-    width: 950px;     /* Ancho fijo de tu "hoja" */
+    width: min(950px, 95vw); /* Responsive: máximo 950px o 95% del viewport */
     margin-left: auto;
     margin-right: auto;   /* Estas dos líneas centran la hoja horizontalmente */
     padding: 2rem 3rem 1.9rem 3rem;   /* Espacio interno: arriba, derecha, abajo (reducido 0.1rem), izquierda */
