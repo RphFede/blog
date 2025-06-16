@@ -15,10 +15,14 @@ nav {
     max-width: 400px;
     margin-left: auto;
     margin-right: auto;
-    background: #383848;
+    background: rgba(38, 38, 48, 0.5); /* Fondo translúcido */
+    backdrop-filter: blur(8px); /* Efecto de desenfoque detrás */
+    -webkit-backdrop-filter: blur(8px); /* Compatibilidad con Safari */
     color: white;
     padding: 0.5rem 3rem;
     border-radius: 16px;
+    z-index: 2; /* Asegurar que esté por encima de bluesmoke */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Borde sutil para definición */
 }
 
 nav a {

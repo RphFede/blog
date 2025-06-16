@@ -1,36 +1,59 @@
-<div class="logo-container"> <!-- contenedor para logo y burbuja -->
-    <img src="/svg/phicon.svg" alt="Phi" class="phi-logo"> <!-- logo de la web -->
-    <img src="/svg/thoughtbubble.svg" alt="Thought Bubble" class="thought-bubble"> <!-- burbuja de pensamiento -->
-    <h1>Reflexiones de sillón</h1> <!-- titulo de la web -->
+<div class="logo">
+    <img src="/svg/bluesmoke.png" alt="logo" class="bluesmoke">
+    <div class="content-overlay">
+        <img src="/svg/phi.svg" alt="Phi greek character" class="phi" > <!-- logo de la web -->
+        <h1>Reflexiones de sillón</h1> <!-- titulo de la web -->
+    </div>
 </div>
 
 <style>
-    /* Contenedor para logo phi y burbuja de pensamiento */
-.logo-container {
+/* Contenedor principal del logo */
+.logo {
     position: relative;
-    display: inline-block;
-}
-
-/* Logo phi - elemento base */
-.phi-logo {;
-    z-index: 2;
-}
-
-/* Burbuja de pensamiento - posicionada relativa al logo */
-.thought-bubble {
-    position: absolute;
-    width: 64px; /* Tamaño inicial - ajústalo según necesites */
-    height: auto;
-    top: -40px; /* Posición vertical - ajústalo según necesites */
-    right: -30px; /* Posición horizontal - ajústalo según necesites */
-    z-index: 1;
-    opacity: 0.9; /* Ligeramente transparente para mejor integración */
-}
-
-header h1 {
-    margin-top: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     margin-bottom: 1rem;
-    z-index: 3;
 }
 
+/* Imagen de fondo bluesmoke */
+.bluesmoke {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 75%;
+    height: auto;
+    z-index: -1; /* Detrás del contenido pero encima del fondo de la página */
+    filter: brightness(1.2) contrast(1.1) saturate(0.7) sepia(0.3) hue-rotate(20deg) opacity(0.8); /* Filtros para mejor integración */
+    mix-blend-mode: color-dodge; /* Combina colores */
+}
+
+/* Contenedor del logo phi y título */
+.content-overlay {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+    z-index: 1;
+    margin-bottom: 0.5rem;
+}
+
+/* Logo phi */
+.phi {
+    width: 4rem;
+    height: 4rem;
+    z-index: 1;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* Título */
+.logo h1 {
+    margin: 0;
+    z-index: 1;
+    white-space: nowrap;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
 </style>

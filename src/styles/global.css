@@ -52,14 +52,12 @@ a:hover {
     color: indigo; /* Cambia el color al pasar el ratón por encima */
 }
 
-
-
 .content-sheet {
     background-color: #fdfdfd; /* Color de la "hoja" */
     width: 950px;     /* Ancho fijo de tu "hoja" */
     margin-left: auto;
     margin-right: auto;   /* Estas dos líneas centran la hoja horizontalmente */
-    padding: 2rem 3rem;   /* Espacio interno para el contenido dentro de la hoja */
+    padding: 2rem 3rem 1.9rem 3rem;   /* Espacio interno: arriba, derecha, abajo (reducido 0.1rem), izquierda */
     border-radius: 4px;   /* Bordes redondeados suaves */
     box-shadow: 
     0 1px 3px rgba(0, 0, 0, 0.12),           /* Sombra base sutil */
