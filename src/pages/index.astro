@@ -10,7 +10,7 @@ const recentPosts = sortedPosts.slice(0, 3);
 
 // Función adaptativa para extraer fragmento según longitud de descripción
 function getResponsiveExcerpt(content: string, description: string): string {
-// Estimar líneas de descripción (aprox. 45 chars por línea en desktop)
+// Estimar líneas de descripción (aprox. 70 chars por línea en desktop)
 const descriptionLines = Math.ceil(description.length / 70); // 70 caracteres = 1 linea de texto imaginaria
   
 // Ajustar longitud base según descripción - más agresivo para aprovechar espacio
