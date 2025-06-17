@@ -4,7 +4,7 @@ description: 'Resumen comparativo de los principales pensadores del estado-naci�
 pubDate: 2025-06-14
 author: Federico Rudolph
 image:
-    url: "../posts-content/post-1/Le_Serment_du_Jeu_de_Paume_-_Couder.webp"
+    url: '../posts-content/post-1/Le_Serment_du_Jeu_de_Paume_-_Couder.webp'
     alt: "Le Serment du Jeu de paume, Couder."
 tags: ["Hobbes", "Locke", "Maquiavelo", "Rosseau", "Spinoza", "derecho natural", "filosofía moderna", "filosofía política"]
 ---
