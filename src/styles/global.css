@@ -101,7 +101,7 @@ a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('/svg/sand.png');
+    background-image: url('/src/content/images/sandtop.png');
     /* OPCIONES DE BACKGROUND-SIZE:
        - cover: Escala la imagen para cubrir todo el contenedor (puede recortar)
        - auto: Mantiene el tamaño original de la imagen
@@ -109,10 +109,28 @@ a:hover {
        - contain: Ajusta para que toda la imagen sea visible */
     background-size: 100% auto; /* Ancho completo, altura proporcional */
     background-repeat: no-repeat;
+    background-position: top; /* Alinea la imagen en la parte inferior */
+    border-radius: 4px; /* Mantiene los bordes redondeados */
+    pointer-events: none; /* Permite interactuar con el contenido debajo */
+    z-index: 0; /* Coloca la imagen detrás del contenido */
+    opacity: 0.7; /* Opacidad de la imagen */;
+}
+
+.content-sheet::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/src/content/images/sandbottom.png');
+    background-size: 100% auto;
+    background-repeat: no-repeat;
     background-position: bottom; /* Alinea la imagen en la parte inferior */
     border-radius: 4px; /* Mantiene los bordes redondeados */
     pointer-events: none; /* Permite interactuar con el contenido debajo */
     z-index: 0; /* Coloca la imagen detrás del contenido */
+    opacity: 0.7; /* Opacidad de la imagen */
 }
 
 .content-sheet > * {
