@@ -1,5 +1,5 @@
 ---
-const {name, position, aboutMe, linkedin, github, cv, profileImage, codingSkills = [] } = Astro.props;
+const {name, position, aboutMe, linkedin, github, curriculum, profileImage, codingSkills = [] } = Astro.props;
 ---
 
 <div class="container">
@@ -30,11 +30,11 @@ const {name, position, aboutMe, linkedin, github, cv, profileImage, codingSkills
                 </span>
                 <img src="/svg/github.svg" alt="GitHub" width="20" height="20">
             </a>
-            <a href={cv} class="hover-text" target="_blank">
+            <a href={curriculum} class="hover-text" target="_blank">
                 <span class="tooltip-text" id="fade">
-                    cv
+                    Currículum
                 </span>
-                <img src="/svg/cv.svg" alt="CV" width="20" height="20">
+                <img src="/svg/cv.svg" alt="Currículum" width="20" height="20">
             </a>
         </div>
     </div>

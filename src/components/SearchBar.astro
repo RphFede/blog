@@ -1,0 +1,116 @@
+---
+// SearchBar.astro - Componente de barra de búsqueda para filtrar posts
+---
+
+<div class="search-container">
+  <input 
+    type="text" 
+    id="search-input" 
+    placeholder="Buscar publicaciones..."
+    class="search-input"
+  />
+  <img src="/svg/search.svg" alt="Buscar" class="search-icon" width="24" height="24" />
+</div>
+
+<!-- 
+<script>
+  // Funcionalidad de búsqueda en tiempo real
+  const searchInput = document.getElementById('search-input') as HTMLInputElement;
+  const searchIcon = document.querySelector('.search-icon') as HTMLElement;
+  
+  if (searchInput && searchIcon) {
+    // Guardar el placeholder original
+    const originalPlaceholder = searchInput.placeholder;
+    
+    // Mostrar ícono y placeholder cuando pierde el foco y no hay texto
+    searchInput.addEventListener('blur', () => {
+      if (searchInput.value === '') {
+        searchIcon.style.opacity = '1';
+        searchInput.placeholder = originalPlaceholder;
+      }
+    });
+    
+    // Funcionalidad de búsqueda
+    searchInput.addEventListener('input', (e) => {
+      const searchTerm = (e.target as HTMLInputElement).value.toLowerCase();
+      const posts = document.querySelectorAll('.post-card');
+      
+      // Mostrar/ocultar ícono y placeholder basado en si hay texto
+      if (searchTerm === '') {
+        searchIcon.style.opacity = '1';
+        searchInput.placeholder = originalPlaceholder;
+      } else {
+        searchIcon.style.opacity = '0';
+        searchInput.placeholder = '';
+      }
+      
+      posts.forEach(post => {
+        const title = post.querySelector('.post-title')?.textContent?.toLowerCase() || '';
+        const description = post.querySelector('.post-description')?.textContent?.toLowerCase() || '';
+        const excerpt = post.querySelector('.post-excerpt')?.textContent?.toLowerCase() || '';
+        
+        // Buscar en título, descripción y contenido
+        const matches = title.includes(searchTerm) || 
+                       description.includes(searchTerm) || 
+                       excerpt.includes(searchTerm);
+        
+        if (matches || searchTerm === '') {
+          (post as HTMLElement).style.display = 'block';
+        } else {
+          (post as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  }
+</script>
+-->
+
+<style>
+.search-container {
+  position: relative;
+  width: 250px;
+  margin-left: auto;
+  margin-bottom: 1rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.75rem 2.5rem 0.75rem 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #4299e1;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1), 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-input::placeholder {
+  color: #a0aec0;
+  font-style: italic;
+}
+
+.search-icon {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  filter: invert(0.4) sepia(0) saturate(0) hue-rotate(0deg) brightness(0.6) contrast(1);
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity 0.3s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .search-container {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+</style>

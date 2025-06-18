@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContentSheet from '../components/ContentSheet.astro';
+import SearchBar from '../components/SearchBar.astro';
 import { Image } from 'astro:assets';
 // 1. Obtiene todos los posts de la colección 'posts'
 const allPosts = await getCollection('posts');
@@ -43,8 +44,11 @@ return cleanContent.substring(0, baseLength).trim() + '...';
 
 <BaseLayout title="Reflexiones de sillón">
 	<ContentSheet>
-	<h1>Más recientes:</h1>
-    <div class="posts-grid">
+		<!-- Barra de búsqueda en la esquina superior derecha -->
+		<SearchBar />
+    		
+		<h1>Más recientes:</h1>
+		<div class="posts-grid">
       {
         recentPosts.map(async (post) => {
           const excerpt = getResponsiveExcerpt(post.body, post.data.description);          
@@ -68,7 +72,7 @@ return cleanContent.substring(0, baseLength).trim() + '...';
                     <h2 class="post-title">{post.data.title}</h2>
                     <p class="post-description">{post.data.description}</p>
                     <p class="post-excerpt">{excerpt}</p>
-                    <span class="read-more-btn">Ver más</span>
+                    <span class="read-more-btn">Leer más</span>
                   </div>
                 </div>
                 <div class="post-date-footer">

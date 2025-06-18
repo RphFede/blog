@@ -1,0 +1,312 @@
+---
+// Sidebar.astro - Componente de barra lateral para entries con archivo y categorías
+import type { CollectionEntry } from 'astro:content';
+
+export interface Props {
+  posts: CollectionEntry<'posts'>[];
+}
+
+const { posts } = Astro.props;
+
+// Organizar posts por mes/año
+const postsByDate = posts
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .reduce((acc, post) => {
+    const date = post.data.pubDate;
+    const monthYear = date.toLocaleDateString('es-ES', { month: 'long', year: 'numeric' });
+    
+    if (!acc[monthYear]) {
+      acc[monthYear] = [];
+    }
+    acc[monthYear].push(post);
+    return acc;
+  }, {} as Record<string, CollectionEntry<'posts'>[]>);
+
+// Categorías predefinidas
+const categories = {
+  'Filosofía': posts.filter(post => post.data.tags?.some(tag => tag.toLowerCase().includes('filosofía') || tag.toLowerCase().includes('filosofia'))),
+  'Análisis literarios': posts.filter(post => post.data.tags?.some(tag => tag.toLowerCase().includes('literatura') || tag.toLowerCase().includes('literario'))),
+  'Cine y televisión': posts.filter(post => post.data.tags?.some(tag => tag.toLowerCase().includes('cine') || tag.toLowerCase().includes('televisión') || tag.toLowerCase().includes('television') || tag.toLowerCase().includes('tv')))
+};
+---
+
+<aside class="sidebar">
+  <!-- Sección Archivo -->
+  <div class="sidebar-section">
+    <h3 class="sidebar-title">
+      <span class="title-text">Archivo</span>
+      <button class="toggle-btn" data-section="archive">
+        <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="6,9 12,15 18,9"></polyline>
+        </svg>
+      </button>
+    </h3>
+    <div class="sidebar-content" id="archive-content">
+      {Object.entries(postsByDate).map(([monthYear, monthPosts]) => (
+        <div class="archive-month">
+          <h4 class="month-title">{monthYear}</h4>
+          <ul class="post-list">
+            {monthPosts.map(post => (
+              <li class="post-item">
+                <a href={`/blog/${post.slug}/`} class="post-link">
+                  {post.data.title}
+                </a>
+                <span class="post-count">({monthPosts.length})</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Sección Categorías -->
+  <div class="sidebar-section">
+    <h3 class="sidebar-title">
+      <span class="title-text">Categorías</span>
+      <button class="toggle-btn" data-section="categories">
+        <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="6,9 12,15 18,9"></polyline>
+        </svg>
+      </button>
+    </h3>
+    <div class="sidebar-content" id="categories-content">
+      {Object.entries(categories).map(([categoryName, categoryPosts]) => (
+        categoryPosts.length > 0 && (
+          <div class="category-group">
+            <h4 class="category-title">{categoryName}</h4>
+            <ul class="post-list">
+              {categoryPosts
+                .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+                .map(post => (
+                  <li class="post-item">
+                    <a href={`/blog/${post.slug}/`} class="post-link">
+                      {post.data.title}
+                    </a>
+                    <span class="post-date">
+                      {post.data.pubDate.toLocaleDateString('es-ES', { 
+                        day: 'numeric', 
+                        month: 'short' 
+                      })}
+                    </span>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+        )
+      ))}
+    </div>
+  </div>
+</aside>
+<!--
+<script>
+  // Funcionalidad de colapso/expansión
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggleButtons = document.querySelectorAll('.toggle-btn');
+    
+    toggleButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const section = button.getAttribute('data-section');
+        const content = document.getElementById(`${section}-content`);
+        const chevron = button.querySelector('.chevron');
+        
+        if (content && chevron) {
+          const isExpanded = content.style.display !== 'none';
+          
+          content.style.display = isExpanded ? 'none' : 'block';
+          chevron.style.transform = isExpanded ? 'rotate(-90deg)' : 'rotate(0deg)';
+          
+          // Guardar estado en localStorage
+          localStorage.setItem(`sidebar-${section}`, isExpanded ? 'collapsed' : 'expanded');
+        }
+      });
+    });
+    
+    // Restaurar estado desde localStorage
+    ['archive', 'categories'].forEach(section => {
+      const savedState = localStorage.getItem(`sidebar-${section}`);
+      const content = document.getElementById(`${section}-content`);
+      const button = document.querySelector(`[data-section="${section}"]`);
+      const chevron = button?.querySelector('.chevron');
+      
+      if (savedState === 'collapsed' && content && chevron) {
+        content.style.display = 'none';
+        chevron.style.transform = 'rotate(-90deg)';
+      }
+    });
+  });
+</script>
+-->
+
+<style>
+.sidebar {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 0;
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.1),
+    0 4px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid #f1f5f9;
+  overflow: hidden;
+}
+
+.sidebar-section {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.sidebar-section:last-child {
+  border-bottom: none;
+}
+
+.sidebar-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  padding: 1rem;
+  background: #f8fafc;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #2d3748;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.title-text {
+  flex: 1;
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.toggle-btn:hover {
+  background-color: #e2e8f0;
+}
+
+.chevron {
+  transition: transform 0.3s ease;
+  color: #718096;
+}
+
+.sidebar-content {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.archive-month,
+.category-group {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.archive-month:last-child,
+.category-group:last-child {
+  border-bottom: none;
+}
+
+.month-title,
+.category-title {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #4a5568;
+  text-transform: capitalize;
+}
+
+.post-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.post-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+  padding: 0.25rem 0;
+}
+
+.post-item:last-child {
+  margin-bottom: 0;
+}
+
+.post-link {
+  flex: 1;
+  font-size: 0.75rem;
+  color: #4299e1;
+  text-decoration: none;
+  line-height: 1.3;
+  margin-right: 0.5rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.post-link:hover {
+  color: #2d3748;
+  text-decoration: underline;
+}
+
+.post-count {
+  font-size: 0.7rem;
+  color: #a0aec0;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.post-date {
+  font-size: 0.65rem;
+  color: #a0aec0;
+  font-style: italic;
+  flex-shrink: 0;
+}
+
+/* Scrollbar personalizada */
+.sidebar-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidebar-content::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.sidebar-content::-webkit-scrollbar-thumb {
+  background: #cbd5e0;
+  border-radius: 2px;
+}
+
+.sidebar-content::-webkit-scrollbar-thumb:hover {
+  background: #a0aec0;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar-content {
+    max-height: 200px;
+  }
+  
+  .post-link {
+    font-size: 0.7rem;
+  }
+  
+  .month-title,
+  .category-title {
+    font-size: 0.75rem;
+  }
+}
+</style>

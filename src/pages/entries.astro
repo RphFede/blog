@@ -1,10 +1,46 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContentSheet from '../components/ContentSheet.astro';
+import SearchBar from '../components/SearchBar.astro';
+import EntriesGrid from '../components/EntriesGrid.astro';
+import Sidebar from '../components/Sidebar.astro';
+// Obtener todos los posts
+const allPosts = await getCollection('posts');
+// Ordenarlos por fecha (más recientes primero)
+const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
-<BaseLayout title="Entradas"> <!-- asi se reemplaza el titulo en head -->
+<BaseLayout title="Entradas">
 	<ContentSheet>
-		<!-- Aquí puedes agregar el contenido de la página entries -->
+
+		<SearchBar />		
+		<h1>Todas las entradas</h1>
+
+		<div class="entries-container">
+
+			<EntriesGrid posts={sortedPosts} />
+			<Sidebar posts={sortedPosts} />
+
+		</div>
 	</ContentSheet>
 </BaseLayout>
+
+<style>
+/* Contenedor principal que contrarresta los márgenes del main */
+.entries-container {
+	display: grid;
+	grid-template-columns: 75% 25%;
+	grid-gap: 1rem;
+	overflow-x: hidden;
+}
+
+.EntriesGrid {
+	grid-column: 1;
+}
+
+.Sidebar {
+	grid-column: 2;
+}
+
+</style>
