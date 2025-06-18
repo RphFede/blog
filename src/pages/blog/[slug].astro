@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ContentSheet from '../../components/ContentSheet.astro';
 import PostHeader from '../../components/PostHeader.astro';
 // 1. getStaticPaths le dice a Astro qué páginas generar
 export async function getStaticPaths() {
@@ -31,19 +32,21 @@ try {
 ---
 
 <BaseLayout>
-    <article>
-        <PostHeader 
-          title={post.data.title} 
-          description={post.data.description} 
-        />
-        <Content />     <!-- 3. El componente <Content /> inyecta el HTML del Markdown -->
-        <div class="post-footer">
-            <div class="post-tags">
-                {post.data.tags.map((tag) => (
-                    <span class="tag">{tag}</span>
-                ))}
+    <ContentSheet>
+        <article>
+            <PostHeader 
+              title={post.data.title} 
+              description={post.data.description} 
+            />
+            <Content />     <!-- 3. El componente <Content /> inyecta el HTML del Markdown -->
+            <div class="post-footer">
+                <div class="post-tags">
+                    {post.data.tags.map((tag) => (
+                        <span class="tag">{tag}</span>
+                    ))}
+                </div>
+                <p class="post-date">{formattedDate}</p>
             </div>
-            <p class="post-date">{formattedDate}</p>
-        </div>
-    </article>
+        </article>
+    </ContentSheet>
 </BaseLayout>

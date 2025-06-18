@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ContentSheet from '../components/ContentSheet.astro';
 import { Image } from 'astro:assets';
 // 1. Obtiene todos los posts de la colección 'posts'
 const allPosts = await getCollection('posts');
@@ -40,7 +41,8 @@ return cleanContent.substring(0, baseLength).trim() + '...';
 }
 ---
 
-<BaseLayout>
+<BaseLayout title="Reflexiones de sillón">
+	<ContentSheet>
 	<h1>Más recientes:</h1>
     <div class="posts-grid">
       {
@@ -78,6 +80,7 @@ return cleanContent.substring(0, baseLength).trim() + '...';
         })
       }
     </div>
+	</ContentSheet>
 </BaseLayout>
 
 <style>
@@ -85,6 +88,7 @@ return cleanContent.substring(0, baseLength).trim() + '...';
   display: grid;
   gap: 2rem;
   margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .post-card {

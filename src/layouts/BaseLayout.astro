@@ -7,6 +7,7 @@ import { ClientRouter } from 'astro:transitions';
 // Componentes compartidos entre las paginas
 import Logo from '../components/Logo.astro';
 import Navigation from '../components/Navigation.astro';
+import ContentSheet from '../components/ContentSheet.astro';
 import Footer from '../components/Footer.astro';
 // Props opcionales para el layout (Props = Propiedades)
 export interface Props {
@@ -32,11 +33,9 @@ const { title = "Reflexiones de sillón" } = Astro.props;
 			<Navigation /> <!-- componente de navegacion -->
 		</header>
 
-		<div class="content-sheet"> <!-- utilice un div como padre de <main> para poder aplicar estilos -->
-			<main> <!-- contenido principal de la web -->
-				<slot /> <!-- etiqueta necesaria para modificaciones en el layout, si no se pone, no se puede modificar el layout -->
-			</main>
-		</div>
+		<main>
+			<slot />
+		</main>
 
 		<Footer /> <!-- componente de pie de pagina -->
 
