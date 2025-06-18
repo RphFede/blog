@@ -1,12 +1,12 @@
 ---
-title: 'Dark: si el tiempo fuera un círculo plano'
+title: 'Dark: Cuando el tiempo es un círculo plano, al estilo de Rust Cohle'
 description: 'Los viajes en el tiempo como metáforas para hablar sobre la angustia existencial.'
 pubDate: 2025-06-18
 author: Federico Rudolph
 image:
     url: '../posts-content/post-4/Jonas_-_Dark_Netflix.webp'
     alt: "Jonas, Dark."
-tags: ["Dark", "Netflix", "series", "análisis literario", "existencialismo", "angustia"]
+tags: ["Dark", "Netflix", "series de televisión", "análisis literario", "existencialismo", "angustia"]
 ---
 
 ![Jonas, Dark.](../posts-content/post-4/Jonas_-_Dark_Netflix.webp)
@@ -107,6 +107,8 @@ Tectus [flebat tenuissima quercus](#modo-maturus) prima aquas aera caelo,
 Lapithas conspicit **nubilaque requies** precor ereptaque erat patruelibus.
 
 ## Opes flabat pedis
+
+![Rust Cohle, True Detective.](/src/content/posts-content/post-4/Rust_-_True_Detective.webp)
 
 Tetigit pendebat surgis, si avem **paelice**? Et sulphura, Alcyone Iovis.
 
