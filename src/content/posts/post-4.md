@@ -6,7 +6,7 @@ author: Federico Rudolph
 image:
     url: '../posts-content/post-4/Jonas_-_Dark_Netflix.webp'
     alt: "Jonas, Dark."
-tags: ["Dark", "Netflix", "True Detective", "series de televisión", "análisis literario", "existencialismo", "angustia"]
+tags: ["Dark", "Netflix", "True Detective", "series de televisión", "existencialismo", "angustia"]
 ---
 
 ![Jonas, Dark.](../posts-content/post-4/Jonas_-_Dark_Netflix.webp)
