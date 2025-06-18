@@ -1,12 +1,12 @@
 ---
-title: 'Dark: Cuando el tiempo es un círculo plano, al estilo de Rust Cohle'
+title: 'Dark: Cuando el tiempo es un círculo plano'
 description: 'Los viajes en el tiempo como metáforas para hablar sobre la angustia existencial.'
 pubDate: 2025-06-18
 author: Federico Rudolph
 image:
     url: '../posts-content/post-4/Jonas_-_Dark_Netflix.webp'
     alt: "Jonas, Dark."
-tags: ["Dark", "Netflix", "series de televisión", "análisis literario", "existencialismo", "angustia"]
+tags: ["Dark", "Netflix", "True Detective", "series de televisión", "análisis literario", "existencialismo", "angustia"]
 ---
 
 ![Jonas, Dark.](../posts-content/post-4/Jonas_-_Dark_Netflix.webp)
