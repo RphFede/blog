@@ -1,0 +1,38 @@
+---
+const {name, ocupation, aboutMe, linkedin, github, cvLink, profileImage, codingSkills = [] } = Astro.props;
+import '../styles/card.css';
+---
+
+<div class="container">
+    <div class="card-container">
+        <div class="descripcion">
+            <h1>{name}</h1>
+            <h2>{ocupation}</h2>
+            <p>{aboutMe}</p>
+            <p>Actualmente implemento {codingSkills}, como tecnologías de diseño en mis trabajos.</p>
+            <div class="icons">
+                <a href={linkedin} class="hover-text" target="_blank">
+                    <span class="tooltip-text" id="fade">
+                        LinkedIn
+                    </span>
+                    <i class="bi bi-linkedin"></i>
+                </a>
+                <a href={github} class="hover-text" target="_blank">
+                    <span class="tooltip-text" id="fade">
+                        GitHub
+                    </span>
+                    <i class="bi bi-github"></i>
+                </a>
+                <a href={cvLink} class="hover-text" target="_blank">
+                    <span class="tooltip-text" id="fade">
+                        Resume
+                    </span>
+                    <i class="bi bi-file-earmark-arrow-down"></i>
+                </a>
+            </div>
+        </div>
+        <div class="image">
+            <img src={profileImage} alt="">
+        </div>
+    </div>
+</div>
