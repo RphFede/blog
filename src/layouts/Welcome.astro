@@ -1,0 +1,138 @@
+---
+// Welcome.astro - Layout de bienvenida para el blog
+---
+
+<div class="welcome-layout">
+    <h1 class="welcome-title">Bienvenido, viajero!</h1>
+  
+     <p class="welcome-description">
+        Este espacio está dedicado a compartir reflexiones sobre filosofía, pensamiento crítico y las grandes preguntas que han acompañado a la humanidad a lo largo de la historia. Aquí encontrarás ensayos, análisis y perspectivas que invitan a la contemplación y al diálogo constructivo.
+    </p>
+  
+    <blockquote class="philosophical-quote">
+        <p>... todas las faltas que se cometen, no proceden sino de esta especie de ignorancia, que hace que se crea saber lo que no se sabe.<p/>
+        <p><strong>He aquí la más vergonzosa ignorancia; he aquí la que es causa de todos los males.</strong>
+        <footer>
+            <cite>— Platón</cite>
+        </footer>
+    </blockquote>
+  
+<p class="welcome-invitation">
+    Espero que estas páginas puedan acompañarte en momentos de reflexión y que encuentres en ellas una invitación al pensamiento pausado y la búsqueda sincera del entendimiento.
+</p>
+</div>
+
+<style>
+  .welcome-layout {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    line-height: 1.7;
+    color: #374151;
+  }
+  
+  .welcome-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #1f2937;
+    text-align: center;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+  }
+  
+  .welcome-description {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    text-align: justify;
+    color: #4b5563;
+    line-height: 1.8;
+  }
+  
+  .philosophical-quote {
+    background: linear-gradient(135deg, #7e5109, #f5b041);
+    color: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-style: italic;
+    line-height: 1.6;
+    margin: 2rem 0;
+    text-align: justify;
+    box-shadow: 
+      0 4px 6px rgba(0, 0, 0, 0.1),
+      0 8px 25px rgba(0, 0, 0, 0.15),
+      0 12px 35px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid rgba(255, 255, 255, 0.3);
+    position: relative;
+  }
+  
+  .philosophical-quote::before {
+    content: '"';
+    font-size: 4rem;
+    color: rgba(255, 255, 255, 0.3);
+    position: absolute;
+    top: -0.5rem;
+    left: 1rem;
+    font-family: serif;
+  }
+  
+  .philosophical-quote::after {
+    content: '"';
+    font-size: 4rem;
+    color: rgba(255, 255, 255, 0.3);
+    position: absolute;
+    bottom: -1rem;
+    right: 1rem;
+    font-family: serif;
+  }
+  
+  .welcome-invitation {
+    font-size: 1rem;
+    text-align: center;
+    color: #6b7280;
+    font-style: italic;
+    margin-top: 2rem;
+    line-height: 1.6;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .welcome-layout {
+      padding: 1.5rem 1rem;
+    }
+    
+    .welcome-title {
+      font-size: 1.5rem;
+    }
+    
+    .philosophical-quote {
+      padding: 1.5rem;
+      font-size: 0.95rem;
+    }
+    
+    .philosophical-quote::before {
+      font-size: 3rem;
+      top: -0.3rem;
+    }
+    
+    .philosophical-quote::after {
+      font-size: 3rem;
+      bottom: -0.7rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .welcome-title {
+      font-size: 1.75rem;
+    }
+    
+    .philosophical-quote {
+      padding: 1.25rem;
+      font-size: 0.9rem;
+    }
+    
+    .welcome-description {
+      font-size: 1rem;
+    }
+  }
+</style>

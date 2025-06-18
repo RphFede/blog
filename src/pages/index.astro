@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContentSheet from '../components/ContentSheet.astro';
-import SearchBar from '../components/SearchBar.astro';
+import Welcome from '../layouts/Welcome.astro';
 import { Image } from 'astro:assets';
 // 1. Obtiene todos los posts de la colección 'posts'
 const allPosts = await getCollection('posts');
@@ -44,10 +44,9 @@ return cleanContent.substring(0, baseLength).trim() + '...';
 
 <BaseLayout title="Reflexiones de sillón">
 	<ContentSheet>
-		<!-- Barra de búsqueda en la esquina superior derecha -->
-		<SearchBar />
-    		
-		<h1>Más recientes:</h1>
+		<!-- Barra de búsqueda en la esquina superior derecha --> 
+    <Welcome />   		
+		<h2>Últimas entradas</h2>    
 		<div class="posts-grid">
       {
         recentPosts.map(async (post) => {
@@ -97,10 +96,11 @@ return cleanContent.substring(0, baseLength).trim() + '...';
 
 .post-card {
   background: #fdfefd;
-  border-radius: 12px;
+  border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #f1f5f9;
 }
 
 .post-card:hover {
@@ -120,7 +120,6 @@ return cleanContent.substring(0, baseLength).trim() + '...';
   width: 200px;
   height: 200px;
   overflow: hidden;
-  border-radius: 8px;
   margin-top: -8px;
 }
 
@@ -189,14 +188,14 @@ return cleanContent.substring(0, baseLength).trim() + '...';
   padding: 1rem 0;
   margin-left: 240px; /* Padding layout (24px) + Ancho de imagen (200px) + gap (16px) */
   margin-right: 1.5rem;
-  border-top: 1px solid #333;
+  border-top: 1px solid #e2e8f0;
   text-align: right;
 }
 
 .post-date-footer small {
   font-size: 0.8rem;
   font-style: italic;
-  color: #666;
+  color: #718096;
 }
 
 /* Responsive design */

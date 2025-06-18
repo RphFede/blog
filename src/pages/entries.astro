@@ -12,27 +12,36 @@ const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pu
 ---
 
 <BaseLayout title="Entradas">
-	<ContentSheet>
+	<ContentSheet>		
+		<h1 class="entries-title">Aquí podrás consultar mis artículos</h1>
+			<div class="entries-container">
 
-		<SearchBar />		
-		<h1>Todas las entradas</h1>
+				<EntriesGrid posts={sortedPosts} />
+				<Sidebar posts={sortedPosts} />
 
-		<div class="entries-container">
-
-			<EntriesGrid posts={sortedPosts} />
-			<Sidebar posts={sortedPosts} />
-
-		</div>
+			</div>
 	</ContentSheet>
 </BaseLayout>
 
 <style>
+.entries-title {
+	font-size: 2rem;
+	font-weight: 600;
+	color: #1f2937;
+	text-align: center;
+	margin-top: 3rem;
+	margin-bottom: 2rem;
+	line-height: 1.7;
+}
+
 /* Contenedor principal que contrarresta los márgenes del main */
 .entries-container {
 	display: grid;
 	grid-template-columns: 75% 25%;
 	grid-gap: 1rem;
 	overflow-x: hidden;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
 }
 
 .EntriesGrid {
@@ -41,6 +50,19 @@ const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pu
 
 .Sidebar {
 	grid-column: 2;
+}
+
+/* Responsive design para el título */
+@media (max-width: 768px) {
+	.entries-title {
+		font-size: 1.5rem;
+	}
+}
+
+@media (max-width: 480px) {
+	.entries-title {
+		font-size: 1.75rem;
+	}
 }
 
 </style>
