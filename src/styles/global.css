@@ -60,8 +60,8 @@ header {
     flex-direction: column; /* los elementos se apilan verticalmente */
     align-items: center;
     justify-content: center;
-    margin-top: 2rem;
-    margin-bottom: 3rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
 }
 
 a {
@@ -75,8 +75,7 @@ a:hover {
 }
 
 main {
-    margin-left: 3rem;
-    margin-right: 3rem;
+    flex: 1; /* Hace que el main ocupe todo el espacio disponible, empujando el footer hacia abajo */
 }
 
 /* Estilos para imágenes en el contenido Markdown */

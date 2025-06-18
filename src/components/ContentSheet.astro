@@ -28,7 +28,6 @@ const { class: className = '' } = Astro.props;
     -2px 2px 6px rgba(0, 0, 0, 0.06),        /* Refuerzo lado izquierdo */
     2px 2px 4px rgba(0, 0, 0, 0.04);         /* Refuerzo lado derecho (más sutil) */
     flex: 1; /* Hace que el contenido principal ocupe el espacio disponible */
-    margin-bottom: 4rem; /* Espacio entre el contenido y el footer - igualado con distancia header-main */
     position: relative; /* Necesario para el pseudo-elemento */
 }
 
@@ -76,6 +75,12 @@ const { class: className = '' } = Astro.props;
 .content-sheet > * {
     position: relative;
     z-index: 1; /* Asegura que el contenido esté por encima de la imagen */
+}
+
+.content-sheet main {
+    margin-left: 3rem;
+    margin-right: 3rem;
+    flex: 1; /* Hace que el main ocupe todo el espacio disponible, empujando el footer hacia abajo */
 }
 
 </style>

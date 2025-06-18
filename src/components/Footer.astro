@@ -1,46 +1,65 @@
 <footer>
-    <div class="social">
-            <a href="https://github.com/RphFede" target="_blank" rel="noopener noreferrer">
-            <img src="/svg/github.svg" alt="">
-        </a>
+    <div class="social">  
+        <p>Revisa mi Instagram para más contenido!</p>      
         <a href="https://instagram.com/rph.fede" target="_blank" rel="noopener noreferrer">
             <img src="/svg/instagram.svg" alt="">
         </a>
-    </div>    
+    </div>
+    <p class="copyright">&copy; 2025 Federico Rudolph</p>  
 </footer>
 
 <style>
-    footer {
-        background: #383848;
-        color: white;
-        padding: .8rem;
-        text-align: center;
-        margin-top: auto;
+footer {
+    background: #383848;
+    color: white;
+    padding: .3rem;
+    text-align: center;
+    margin-top: 2rem;
+    column-gap: 0;
+}
+    
+.social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .8rem;
+    margin-bottom: 0.3rem;
     }
     
-    .social {
-        display: flex;
-        justify-content: center;
-        gap: .8rem;
-    }
+.social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+    padding: 0.3rem;
+}
     
-    .social a {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 48px;
-        height: 48px;
-        border-radius: 4px;
-        transition: transform 0.3s ease, background-color 0.3s ease;
-    }
+.social a:hover {
+    transform: translateY(-2px) scale(1.15);
+    opacity: 1;
+}
     
-    .social a:hover {
-        transform: translateY(-2px);
-        background-color: rgba(255, 255, 255, 0.1);
-    }
-    
-    .social img {
-        width: 32px;
-        height: 32px;
-    }
+.social img {
+    width: 24px;
+    height: 24px;
+    transition: all 0.3s ease;
+}
+
+.social a:hover img {
+    filter: brightness(1.1) contrast(1.1);
+}
+
+.social p {
+    font-size: 14;
+    align-items: center;
+}
+
+.copyright {
+    font-size: 12px;
+    font-style: italic;
+    color: #777;
+    margin-top: 0;
+    margin-bottom: .5rem;
+}
 </style>
