@@ -15,14 +15,17 @@ const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pu
 	description="Aquí podrás consultar mis artículos"
 >
 
-	<ContentSheet>		
-		<h2 class="page-title">Aquí podrás consultar mis artículos</h2>
-			<div class="entries-container">
+	<ContentSheet>
+		<div class="page-header">		
+			<h2 class="page-title">Aquí podrás consultar mis artículos</h2>
+		</div>
+		<div class="entries-container">
 
-				<EntriesGrid posts={sortedPosts} />
-				<Sidebar posts={sortedPosts} />
+			<EntriesGrid posts={sortedPosts} />
+			<Sidebar posts={sortedPosts} />
 
-			</div>
+		</div>
+		
 	</ContentSheet>
 </BaseLayout>
 
