@@ -1,0 +1,197 @@
+/* ==========================================================================
+   PALETA DE COLORES - VARIABLES CSS
+   Generado automáticamente desde color-palette.jsonc
+   Fecha de generación: 2024-12-19
+   ========================================================================== */
+
+:root {
+  /* ==========================================================================
+     ROJOS
+     ========================================================================== */
+  --color-rojo-1: #ff0000;
+  --color-rojo-2: #fd1d1d;
+
+  /* ==========================================================================
+     NARANJAS
+     ========================================================================== */
+  --color-naranja-1: #f97316;
+  --color-naranja-2: #fcb045;
+
+  /* ==========================================================================
+     AMARILLOS
+     ========================================================================== */
+  --color-amarillo-1: #eab308;
+
+  /* ==========================================================================
+     VERDES
+     ========================================================================== */
+  --color-verde-1: #10b981;
+  --color-verde-2: #14b8a6;
+  --color-verde-3: #22c55e;
+
+  /* ==========================================================================
+     AZULES
+     ========================================================================== */
+  --color-azul-1: #06b6d4;
+  --color-azul-2: #0ea5e9;
+  --color-azul-3: #3b82f6;
+  --color-azul-4: #667eea;
+
+  /* ==========================================================================
+     VIOLETAS Y PÚRPURAS
+     ========================================================================== */
+  --color-violeta-1: #764ba2;
+  --color-violeta-2: #833ab4;
+  --color-violeta-3: #a855f7;
+  --color-rosa-1: #ec4899;
+
+  /* ==========================================================================
+     GRISES Y NEUTROS
+     ========================================================================== */
+  --color-blanco: #ffffff;
+  --color-gris-1: #f1f5f9;
+  --color-gris-2: #e2e8f0;
+  --color-gris-3: #cbd5e1;
+  --color-gris-4: #94a3b8;
+  --color-gris-5: #6b7280;
+  --color-gris-6: #4b5563;
+  --color-gris-7: #374151;
+  --color-gris-8: #262630;
+  --color-gris-9: #1f2937;
+  --color-gris-10: #111827;
+  --color-negro: #000000;
+
+  /* ==========================================================================
+     ALIASES SEMÁNTICOS
+     Variables con nombres más descriptivos para casos de uso específicos
+     ========================================================================== */
+  
+  /* Colores de texto */
+  --text-primary: var(--color-gris-9);
+  --text-secondary: var(--color-gris-7);
+  --text-muted: var(--color-gris-5);
+  --text-light: var(--color-gris-3);
+  --text-inverse: var(--color-blanco);
+
+  /* Colores de fondo */
+  --bg-primary: var(--color-blanco);
+  --bg-secondary: var(--color-gris-1);
+  --bg-muted: var(--color-gris-2);
+  --bg-dark: var(--color-gris-9);
+  --bg-darker: var(--color-gris-10);
+
+  /* Colores de acento */
+  --accent-primary: var(--color-azul-3);
+  --accent-secondary: var(--color-violeta-3);
+  --accent-success: var(--color-verde-3);
+  --accent-warning: var(--color-amarillo-1);
+  --accent-error: var(--color-rojo-1);
+  --accent-info: var(--color-azul-1);
+
+  /* Colores de borde */
+  --border-light: var(--color-gris-3);
+  --border-medium: var(--color-gris-4);
+  --border-dark: var(--color-gris-6);
+
+  /* Gradientes comunes */
+  --gradient-primary: linear-gradient(135deg, var(--color-azul-3), var(--color-violeta-3));
+  --gradient-warm: linear-gradient(135deg, var(--color-naranja-1), var(--color-rosa-1));
+  --gradient-cool: linear-gradient(135deg, var(--color-azul-1), var(--color-verde-2));
+}
+
+/* ==========================================================================
+   UTILIDADES DE COLOR
+   Clases auxiliares para aplicar colores rápidamente
+   ========================================================================== */
+
+/* Colores de texto */
+.text-primary { color: var(--text-primary); }
+.text-secondary { color: var(--text-secondary); }
+.text-muted { color: var(--text-muted); }
+.text-light { color: var(--text-light); }
+.text-inverse { color: var(--text-inverse); }
+
+/* Colores de fondo */
+.bg-primary { background-color: var(--bg-primary); }
+.bg-secondary { background-color: var(--bg-secondary); }
+.bg-muted { background-color: var(--bg-muted); }
+.bg-dark { background-color: var(--bg-dark); }
+.bg-darker { background-color: var(--bg-darker); }
+
+/* Colores de acento */
+.accent-primary { color: var(--accent-primary); }
+.accent-secondary { color: var(--accent-secondary); }
+.accent-success { color: var(--accent-success); }
+.accent-warning { color: var(--accent-warning); }
+.accent-error { color: var(--accent-error); }
+.accent-info { color: var(--accent-info); }
+
+/* Fondos de acento */
+.bg-accent-primary { background-color: var(--accent-primary); }
+.bg-accent-secondary { background-color: var(--accent-secondary); }
+.bg-accent-success { background-color: var(--accent-success); }
+.bg-accent-warning { background-color: var(--accent-warning); }
+.bg-accent-error { background-color: var(--accent-error); }
+.bg-accent-info { background-color: var(--accent-info); }
+
+/* Bordes */
+.border-light { border-color: var(--border-light); }
+.border-medium { border-color: var(--border-medium); }
+.border-dark { border-color: var(--border-dark); }
+
+/* ==========================================================================
+   MODO OSCURO
+   Variables alternativas para tema oscuro
+   ========================================================================== */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Invertir colores de texto y fondo para modo oscuro */
+    --text-primary: var(--color-gris-1);
+    --text-secondary: var(--color-gris-3);
+    --text-muted: var(--color-gris-4);
+    --text-light: var(--color-gris-5);
+    --text-inverse: var(--color-gris-9);
+
+    --bg-primary: var(--color-gris-10);
+    --bg-secondary: var(--color-gris-9);
+    --bg-muted: var(--color-gris-8);
+    --bg-dark: var(--color-gris-1);
+    --bg-darker: var(--color-blanco);
+
+    --border-light: var(--color-gris-7);
+    --border-medium: var(--color-gris-6);
+    --border-dark: var(--color-gris-4);
+  }
+}
+
+/* Clase para forzar modo oscuro */
+.dark-theme {
+  --text-primary: var(--color-gris-1);
+  --text-secondary: var(--color-gris-3);
+  --text-muted: var(--color-gris-4);
+  --text-light: var(--color-gris-5);
+  --text-inverse: var(--color-gris-9);
+
+  --bg-primary: var(--color-gris-10);
+  --bg-secondary: var(--color-gris-9);
+  --bg-muted: var(--color-gris-8);
+  --bg-dark: var(--color-gris-1);
+  --bg-darker: var(--color-blanco);
+
+  --border-light: var(--color-gris-7);
+  --border-medium: var(--color-gris-6);
+  --border-dark: var(--color-gris-4);
+}
+
+/* ==========================================================================
+   ARCHIVO GENERADO AUTOMÁTICAMENTE
+   
+   ⚠️  NO EDITAR MANUALMENTE
+   Este archivo se genera automáticamente desde color-palette.jsonc
+   
+   Para modificar colores:
+   1. Edita color-palette.jsonc
+   2. Ejecuta: node generate-color-palette.js
+   
+   ========================================================================== */

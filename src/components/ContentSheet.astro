@@ -2,17 +2,15 @@
 export interface Props {
   class?: string;
 }
-
 const { class: className = '' } = Astro.props;
 ---
 <div class={`content-sheet ${className}`}>
     <main>
-      <slot />
+        <slot />
     </main>
 </div>
 
 <style>
-
 /* HOJA DE CONTENIDO */
 .content-sheet {
     background-color: #fdfdfd; /* Color de la "hoja" */
@@ -83,4 +81,29 @@ const { class: className = '' } = Astro.props;
     flex: 1; /* Hace que el main ocupe todo el espacio disponible, empujando el footer hacia abajo */
 }
 
+.page-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #1f2937;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+
+.page-title--left {
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 1.75rem;
+  }
+}
 </style>

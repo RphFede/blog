@@ -2,7 +2,6 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContentSheet from '../components/ContentSheet.astro';
-import SearchBar from '../components/SearchBar.astro';
 import EntriesGrid from '../components/EntriesGrid.astro';
 import Sidebar from '../components/Sidebar.astro';
 // Obtener todos los posts
@@ -13,7 +12,7 @@ const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pu
 
 <BaseLayout title="Entradas">
 	<ContentSheet>		
-		<h1 class="entries-title">Aquí podrás consultar mis artículos</h1>
+		<h2 class="page-title">Aquí podrás consultar mis artículos</h2>
 			<div class="entries-container">
 
 				<EntriesGrid posts={sortedPosts} />
@@ -24,16 +23,6 @@ const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pu
 </BaseLayout>
 
 <style>
-.entries-title {
-	font-size: 2rem;
-	font-weight: 600;
-	color: #1f2937;
-	text-align: center;
-	margin-top: 3rem;
-	margin-bottom: 2rem;
-	line-height: 1.7;
-}
-
 /* Contenedor principal que contrarresta los márgenes del main */
 .entries-container {
 	display: grid;
@@ -64,5 +53,4 @@ const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pu
 		font-size: 1.75rem;
 	}
 }
-
 </style>

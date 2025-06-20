@@ -2,7 +2,23 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ContentSheet from '../../components/ContentSheet.astro';
-import PostHeader from '../../components/PostHeader.astro';
+export interface Props {
+  post: {
+    data: {
+      title: string;
+      description: string;
+      pubDate?: Date | string;
+      tags: string[];
+    };
+    slug: string;
+    render: () => Promise<{ Content: any }>;
+  };
+}
+// codigo de extracción/renderizado
+const { post } = Astro.props;
+const { title, description, pubDate } = post.data;
+// codigo de paginación
+
 // 1. getStaticPaths le dice a Astro qué páginas generar
 export async function getStaticPaths() {
   const allPosts = await getCollection('posts');
@@ -12,7 +28,6 @@ export async function getStaticPaths() {
   }));
 }
 // 2. Obtenemos las props del post actual
-const { post } = Astro.props;
 const { Content } = await post.render(); // ¡Aquí se renderiza el Markdown!
 // Manejo seguro de la fecha
 let formattedDate = '';
@@ -33,20 +48,208 @@ try {
 
 <BaseLayout>
     <ContentSheet>
-        <article>
-            <PostHeader 
-              title={post.data.title} 
-              description={post.data.description} 
-            />
-            <Content />     <!-- 3. El componente <Content /> inyecta el HTML del Markdown -->
-            <div class="post-footer">
-                <div class="post-tags">
-                    {post.data.tags.map((tag) => (
-                        <span class="tag">{tag}</span>
-                    ))}
-                </div>
-                <p class="post-date">{formattedDate}</p>
-            </div>
-        </article>
+      <div class="post-header">
+        <h1 class="page-title">{post.data.title}</h1>
+        <p class="post-info">{post.data.description}</p>
+      </div>
+      <article>
+          
+      <Content />     <!-- 3. El componente <Content /> inyecta el HTML del Markdown -->
+
+      <div class="post-footer">
+        <div class="post-tags">
+          {post.data.tags.map((tag: string) => (
+          <span class="tag">{tag}</span>
+        ))}
+        </div>
+          <p class="post-date">{formattedDate}</p>
+        </div>
+      </article>
     </ContentSheet>
 </BaseLayout>
+
+<style>
+
+/* Estilos para el contenido markdown */
+article :global(h1) {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #1f2937;
+  text-align: center;
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+
+article :global(h2) {
+  font-size: 2rem;
+  color: #374151;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+article :global(h3) {
+  font-size: 1.75rem;
+  color: #4b5563;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+article :global(h4) {
+  font-size: 1.5rem;
+  color: #6b7280;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+article :global(h5) {
+  font-size: 1.25rem;
+  color: #6b7280;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+article :global(h6) {
+  font-size: 1.125rem;
+  color: #6b7280;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+article :global(p) {
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  color: #374151;
+  font-size: 0.95rem;
+  word-spacing: normal;
+}
+
+article :global(blockquote) {
+  border-left: 4px solid #f5b041;
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  font-style: italic;
+  color: #6b7280;
+  background-color: #f8fafc;
+  padding: 1rem 1.5rem;
+  border-radius: 0 8px 8px 0;
+}
+
+article :global(code) {
+  background-color: #f1f5f9;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+}
+
+article :global(pre) {
+  background-color: #1e293b;
+  color: #e2e8f0;
+  padding: 1.5rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+article :global(ul), article :global(ol) {
+  margin-bottom: 1.25rem;
+  padding-left: 2rem;
+}
+
+article :global(li) {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+article :global(a) {
+  color: #3b82f6;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+article :global(a:hover) {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+article :global(img) {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+/* Estilos para imágenes en el contenido Markdown */
+/* Reemplaza o modifica el selector actual */
+.post-header {
+  padding: 2rem 1rem;
+}
+
+.post-title {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.post-info {
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 600;
+    text-align: center;
+    margin: 0;
+    color: #374151;
+}
+
+article img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 2rem auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para el footer del post */
+.post-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Cambiado de center a flex-start para alinear arriba */
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #333;
+}
+
+/* Estilos para las etiquetas */
+.post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0;
+    max-width: 70%; /* Limitar el ancho para dejar espacio a la fecha */
+}
+
+.tag {
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.tag:hover {
+    background-color: #e0e0e0;
+    transform: translateY(-2px);
+}
+
+/* Estilos para la fecha de publicación */
+.post-date {
+    margin: 0;
+    font-size: 0.9rem;
+    font-style: italic;
+    text-align: right;
+    color: #666;
+    white-space: nowrap; /* Evita que el texto se divida en múltiples líneas */
+    min-width: 30%; /* Asegura un espacio mínimo para la fecha */
+}
+</style>

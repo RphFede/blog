@@ -78,74 +78,11 @@ main {
     flex: 1; /* Hace que el main ocupe todo el espacio disponible, empujando el footer hacia abajo */
 }
 
-/* Estilos para imágenes en el contenido Markdown */
-/* Reemplaza o modifica el selector actual */
-.post-header {
-    margin: auto;
-}
-
-.post-title {
-    font-size: 32px;
-    font-weight: bold;
-}
-
-.post-info {
-    font-size: 18px;
-    font-style: italic;
-    font-weight: 500;
+.page-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #1f2937;
     text-align: center;
-}
-
-article img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 2rem auto;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Estilos para el footer del post */
-.post-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start; /* Cambiado de center a flex-start para alinear arriba */
-    margin-top: 4rem;
-    margin-bottom: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid #333;
-}
-
-/* Estilos para las etiquetas */
-.post-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin: 0;
-    max-width: 70%; /* Limitar el ancho para dejar espacio a la fecha */
-}
-
-.tag {
-    background-color: #f0f0f0;
-    color: #333;
-    padding: 0.3rem 0.6rem;
-    border-radius: 4px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: background-color 0.2s, transform 0.1s;
-}
-
-.tag:hover {
-    background-color: #e0e0e0;
-    transform: translateY(-2px);
-}
-
-/* Estilos para la fecha de publicación */
-.post-date {
-    margin: 0;
-    font-size: 0.9rem;
-    font-style: italic;
-    text-align: right;
-    color: #666;
-    white-space: nowrap; /* Evita que el texto se divida en múltiples líneas */
-    min-width: 30%; /* Asegura un espacio mínimo para la fecha */
-}
+    margin-bottom: 2rem;
+    line-height: 1.2;
+  }

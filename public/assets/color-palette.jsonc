@@ -1,0 +1,203 @@
+{
+  // Paleta de colores del proyecto Astro
+  // Organizada por espectro visual de luz
+  // Solo colores sólidos con valores hexadecimales
+  
+  "metadata": {
+    "name": "Astro Project Color Palette - Simplified",
+    "version": "2.0.0",
+    "description": "Paleta simplificada de colores utilizados en el proyecto Astro",
+    "lastUpdated": "2024"
+  },
+
+  "spectrum": {
+    // ROJOS
+    "reds": {
+      "category": "Rojos",
+      "colors": [
+        {
+          "name": "rojo-1",
+          "hex": "#ff0000",
+          "preview": "■"
+        },
+        {
+          "name": "rojo-2",
+          "hex": "#fd1d1d",
+          "preview": "■"
+        }
+      ]
+    },
+
+    // NARANJAS
+    "oranges": {
+      "category": "Naranjas",
+      "colors": [
+        {
+          "name": "naranja-1",
+          "hex": "#f97316",
+          "preview": "■"
+        },
+        {
+          "name": "naranja-2",
+          "hex": "#fcb045",
+          "preview": "■"
+        }
+      ]
+    },
+
+    // AMARILLOS
+    "yellows": {
+      "category": "Amarillos",
+      "colors": [
+        {
+          "name": "amarillo-1",
+          "hex": "#eab308",
+          "preview": "■"
+        }
+      ]
+    },
+
+    // VERDES
+    "greens": {
+      "category": "Verdes",
+      "colors": [
+        {
+          "name": "verde-1",
+          "hex": "#10b981",
+          "preview": "■"
+        },
+        {
+          "name": "verde-2",
+          "hex": "#14b8a6",
+          "preview": "■"
+        },
+        {
+          "name": "verde-3",
+          "hex": "#22c55e",
+          "preview": "■"
+        }
+      ]
+    },
+
+    // AZULES
+    "blues": {
+      "category": "Azules",
+      "colors": [
+        {
+          "name": "azul-1",
+          "hex": "#06b6d4",
+          "preview": "■"
+        },
+        {
+          "name": "azul-2",
+          "hex": "#0ea5e9",
+          "preview": "■"
+        },
+        {
+          "name": "azul-3",
+          "hex": "#3b82f6",
+          "preview": "■"
+        },
+        {
+          "name": "azul-4",
+          "hex": "#667eea",
+          "preview": "■"
+        }
+      ]
+    },
+
+    // VIOLETAS/PÚRPURAS
+    "purples": {
+      "category": "Violetas y Púrpuras",
+      "colors": [
+        {
+          "name": "violeta-1",
+          "hex": "#764ba2",
+          "preview": "■"
+        },
+        {
+          "name": "violeta-2",
+          "hex": "#833ab4",
+          "preview": "■"
+        },
+        {
+          "name": "violeta-3",
+          "hex": "#a855f7",
+          "preview": "■"
+        },
+        {
+          "name": "rosa-1",
+          "hex": "#ec4899",
+          "preview": "■"
+        }
+      ]
+    },
+
+    // GRISES Y NEUTROS
+    "neutrals": {
+      "category": "Grises y Neutros",
+      "colors": [
+        {
+          "name": "blanco",
+          "hex": "#ffffff",
+          "preview": "■"
+        },
+        {
+          "name": "gris-1",
+          "hex": "#f1f5f9",
+          "preview": "■"
+        },
+        {
+          "name": "gris-2",
+          "hex": "#e2e8f0",
+          "preview": "■"
+        },
+        {
+          "name": "gris-3",
+          "hex": "#cbd5e1",
+          "preview": "■"
+        },
+        {
+          "name": "gris-4",
+          "hex": "#94a3b8",
+          "preview": "■"
+        },
+        {
+          "name": "gris-5",
+          "hex": "#6b7280",
+          "preview": "■"
+        },
+        {
+          "name": "gris-6",
+          "hex": "#4b5563",
+          "preview": "■"
+        },
+        {
+          "name": "gris-7",
+          "hex": "#374151",
+          "preview": "■"
+        },
+        {
+          "name": "gris-8",
+          "hex": "#262630",
+          "preview": "■"
+        },
+        {
+          "name": "gris-9",
+          "hex": "#1f2937",
+          "preview": "■"
+        },
+        {
+          "name": "gris-10",
+          "hex": "#111827",
+          "preview": "■"
+        },
+        {
+          "name": "negro",
+          "hex": "#000000",
+          "preview": "■"
+        }
+      ]
+    }
+  }
+}
