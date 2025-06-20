@@ -12,8 +12,11 @@ import Footer from '../components/Footer.astro';
 // Props opcionales para el layout (Props = Propiedades)
 export interface Props {
 	title?: string; // El "?" indica que es opcional, por defecto es "Reflexiones de sillón"
+	description?: string;
 }
-const { title = "Reflexiones de sillón" } = Astro.props;
+const { title = "Reflexiones de sillón",
+		description = "Espacio personal donde comparto mis reflexiones filosóficas y personales desde un interés académico con un enfoque lúdico"
+} = Astro.props;
 ---
 
 <html lang="es">
@@ -22,6 +25,7 @@ const { title = "Reflexiones de sillón" } = Astro.props;
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/phicon.svg" /> <!-- icono de la web -->
 		<meta name="viewport" content="width=device-width" />
+		<meta name="description" content={description} />
 		<meta name="generator" content={Astro.generator} /> <!-- generador de la web -->
 		<title>{title}</title> 
 		<ClientRouter /> <!-- router para las transiciones -->

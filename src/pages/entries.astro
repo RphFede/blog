@@ -10,7 +10,11 @@ const allPosts = await getCollection('posts');
 const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
-<BaseLayout title="Entradas">
+<BaseLayout 
+	title="Entradas"
+	description="Aquí podrás consultar mis artículos"
+>
+
 	<ContentSheet>		
 		<h2 class="page-title">Aquí podrás consultar mis artículos</h2>
 			<div class="entries-container">

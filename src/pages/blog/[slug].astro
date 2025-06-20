@@ -46,7 +46,10 @@ try {
 }
 ---
 
-<BaseLayout>
+<BaseLayout 
+  title={post.data.title}
+  description={post.data.description}
+>
     <ContentSheet>
       <div class="post-header">
         <h1 class="page-title">{post.data.title}</h1>
