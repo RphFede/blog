@@ -62,6 +62,14 @@
   --color-negro: #000000;
 
   /* ==========================================================================
+     JERARQUIA DE BLANCOS
+     ========================================================================== */
+     --bg-page: #f5f5f5;      /* 🏆 FONDO PRINCIPAL - más sutil */
+     --bg-content: #fafafa;   /* Contenido sobre el fondo */
+     --bg-cards: #fdfdfd;     /* Tarjetas y elementos */
+     --bg-pure: #ffffff;      /* Solo para texto/iconos */
+
+  /* ==========================================================================
      ALIASES SEMÁNTICOS
      Variables con nombres más descriptivos para casos de uso específicos
      ========================================================================== */
