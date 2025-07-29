@@ -1,9 +1,9 @@
 ---
 const {name, position, aboutMe, linkedin, github, curriculum, profileImage, codingSkills = [] } = Astro.props;
-import { fade } from 'astro:transitions';   
+import { fade } from 'astro:transitions';
 ---
 
-<div class="container" transition:animate={fade({ duration: 0.2 })}>
+<div class="container" transition:animate={fade({ duration: 1 })}>
     <div class="card-container">
         <div class="header">
             <h1>{name}</h1>
