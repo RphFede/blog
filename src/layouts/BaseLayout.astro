@@ -27,6 +27,11 @@ const { title = "Reflexiones de sillón",
 		<meta name="viewport" content="width=device-width" />
 		<meta name="description" content={description} />
 		<meta name="generator" content={Astro.generator} /> <!-- generador de la web -->
+		<!-- Precarga de fuentes para evitar problemas con View Transitions -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap" media="print" onload="this.media='all'">
 		<title>{title}</title> 
 		<ClientRouter /> <!-- router para las transiciones -->
 	</head>	
@@ -60,6 +65,51 @@ const { title = "Reflexiones de sillón",
 				// Ejemplo: reinicializar tooltips, modales, etc.
 				// initTooltips();
 				// initModals();
+				
+				// Asegurar que la fuente esté cargada después de cada transición
+				ensureFontLoaded();
+			}
+			
+			// Función para asegurar que la fuente esté cargada
+			function ensureFontLoaded() {
+				// Verificar si ya existe el enlace de la fuente
+				const fontLink = document.querySelector('link[href*="fonts.googleapis.com/css2?family=Exo+2"]');
+				
+				// Si no existe, recrearlo
+				if (!fontLink || fontLink.getAttribute('media') !== 'all') {
+					console.log("🔤 Asegurando carga de fuente Exo 2");
+					
+					// Asegurar que los enlaces de preconexión existan
+					if (!document.querySelector('link[href="https://fonts.googleapis.com"]')) {
+						const preconnectGoogle = document.createElement('link');
+						preconnectGoogle.rel = 'preconnect';
+						preconnectGoogle.href = 'https://fonts.googleapis.com';
+						document.head.appendChild(preconnectGoogle);
+					}
+					
+					if (!document.querySelector('link[href="https://fonts.gstatic.com"]')) {
+						const preconnectGstatic = document.createElement('link');
+						preconnectGstatic.rel = 'preconnect';
+						preconnectGstatic.href = 'https://fonts.gstatic.com';
+						preconnectGstatic.setAttribute('crossorigin', '');
+						document.head.appendChild(preconnectGstatic);
+					}
+					
+					// Asegurar que el enlace de la fuente exista y esté activo
+					const fontUrl = 'https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap';
+					
+					if (fontLink) {
+						// Si existe pero no está activo, activarlo
+						fontLink.setAttribute('media', 'all');
+					} else {
+						// Si no existe, crear nuevo enlace
+						const newFontLink = document.createElement('link');
+						newFontLink.rel = 'stylesheet';
+						newFontLink.href = fontUrl;
+						newFontLink.setAttribute('media', 'all');
+						document.head.appendChild(newFontLink);
+					}
+				}
 			}
 			
 			// Ejecutar en la carga inicial

@@ -1,5 +1,5 @@
-/* se importa la fuente de google */
-@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
+/* La fuente ahora se carga en BaseLayout.astro con preload */
+/* @import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap'); */
 
 /* Prevención general
 html {
