@@ -10,7 +10,7 @@ tags: ["Hobbes", "Locke", "Maquiavelo", "Rosseau", "Spinoza", "derecho natural",
 ---
 
 ![Le Serment du Jeu de Paume, Couder](../posts-content/post-1/Le_Serment_du_Jeu_de_Paume_-_Couder.webp)
-# Próximamente...
+## Antes que nada, un poco de contexto...
 
 Para empezar, no está de más señalar que la forma en la que hoy concebimos al Estado(1) no ha sido siempre la misma. A lo largo de la historia las sociedades concibieron distintas formas de organizarse. Nuestra idea de Estado deviene de todo un desarrollo histórico y del pensamiento que rastrea sus orígenes hacia la Grecia de la antigüedad. La existencia de los estados es quizás anterior a la teoría política, y no fue hasta la aparición de Platón que nuestra civilización -la civilización occidental- se preguntó cosas como: "¿qué es un Estado?", o bien "¿cómo debería ser el Estado ideal?" (guardando esta última pregunta una íntima relación con la idea de justicia).
 
