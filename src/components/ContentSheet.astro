@@ -1,12 +1,9 @@
 ---
 import { slide } from 'astro:transitions';
 
-export interface Props {
-  class?: string;
-}
 const { class: className = '' } = Astro.props;
 ---
-<div class={`content-sheet ${className}`} transition:animate={slide({ duration: 0.1 })}>
+<div class={`content-sheet ${className}`} transition:animate={slide({ duration: 0.2 })}>
     <main>
         <slot />
     </main>
