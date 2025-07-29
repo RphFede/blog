@@ -20,5 +20,5 @@ No sería sino hasta la modernidad que surgirían las nuevas teorías sobre el E
 
 Es en este período histórico donde decidiré detenerme a examinar y exponer las distintas posturas y formas en las que se intentó formular aquello que, a partir de la modernidad y durante otros siglos en adelante, entenderíamos como los estados-nación -_al menos hasta el período de la Gran Guerra y antes del fenómeno de la globalización_-. Todos estos pensadores serían los precursores que sentaron las bases de la política contemporánea y sus diferentes vertientes, así como también los fundamentos de ideas tan familiares como **la propiedad privada** o **el colectivismo**.
 
-[^1]: Cualquier forma de organización política, dotada de poder soberano e independiente, que integra la población de un territorio.
+[^1]: En general, bajo la forma de repúblicas democráticas de carácter representativo. 
 [^2]: La organización política propia de los estados griegos antigüos.
