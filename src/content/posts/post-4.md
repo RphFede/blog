@@ -10,6 +10,7 @@ tags: ["Dark", "Netflix", "True Detective", "series de televisión", "existencia
 ---
 
 ![Jonas, Dark.](../posts-content/post-4/Jonas_-_Dark_Netflix.webp)
-# Próximamente...
 
-![Rust Cohle, True Detective.](/src/content/posts-content/post-4/Rust_-_True_Detective.webp)
+![Rust Cohle, True Detective.](../posts-content/post-4/Rust_-_True_Detective.webp)
+
+# Próximamente...
