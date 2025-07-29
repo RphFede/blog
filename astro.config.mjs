@@ -8,6 +8,10 @@ export default defineConfig({
     host: true,
     open: false
   },
+  // Configuración para transiciones entre páginas
+  experimental: {
+    clientPrerender: true
+  },
   vite: {
     server: {
       watch: {

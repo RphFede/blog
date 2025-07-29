@@ -4,6 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ContentSheet from '../components/ContentSheet.astro';
 import EntriesGrid from '../components/EntriesGrid.astro';
 import Sidebar from '../components/Sidebar.astro';
+import { fade } from 'astro:transitions';
 // Obtener todos los posts
 const allPosts = await getCollection('posts');
 // Ordenarlos por fecha (más recientes primero)
@@ -16,10 +17,10 @@ const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pu
 >
 
 	<ContentSheet>
-		<div class="page-header">		
+		<div class="page-header" transition:animate={fade({ duration: '0.3s' })}>		
 			<h2 class="page-title">Aquí podrás consultar mis artículos</h2>
 		</div>
-		<div class="entries-container">
+		<div class="entries-container" transition:animate={fade({ duration: '0.5s' })}>
 
 			<EntriesGrid posts={sortedPosts} />
 			<Sidebar posts={sortedPosts} />
